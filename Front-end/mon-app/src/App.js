@@ -5,6 +5,8 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
 import Header from './containers/Header';
+import React from 'react';
+
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
       <Router>
       <Routes>
               <Route path="/" element={<Home/>} />
-              <Route path="/profile" element={<Profile/>} />
+              <Route path="/profile" element={<Profile stylePaddings={{paddingBottom : "15px", paddingTop:"15px"}}/>} />
               <Route path="/connection" element={<Connection/>} />
             </Routes>
       </Router>
