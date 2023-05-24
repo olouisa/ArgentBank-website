@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/pages.css";
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
@@ -7,14 +8,14 @@ import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 function SignOut({style}) {
   return (
     <div>
-         <a className="main-nav-item" href="./user.html">
+         <Link to="/profile" className="main-nav-item">
          <FontAwesomeIcon style={style} icon={faCircleUser} />
           Tony
-        </a>
-        <a className="main-nav-item" href="./index.html">
+        </Link>
+        <Link to="/" className="main-nav-item">
         <FontAwesomeIcon style={style} icon={faRightFromBracket} /> 
           Sign Out
-        </a>
+        </Link>
         
     </div>
   )
