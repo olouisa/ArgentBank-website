@@ -1,11 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Form from '../containers/Form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 
-function Connection() {
+function Connection({stylePaddings={}}) {
   return (
     <div>
-      <h2>Connection</h2>
+       <main style={{...stylePaddings}} class="main bg-dark">
+      <section class="sign-in-content">
+      <FontAwesomeIcon  icon={faCircleUser} />
+        {/* <i class="fa fa-user-circle sign-in-icon"></i> */}
+        <h1>Sign In</h1>
+       <Form/>
+      </section>
+    </main>
     </div>
   )
 }
 
-export default Connection
+export default Connection;

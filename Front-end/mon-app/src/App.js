@@ -15,8 +15,8 @@ function App() {
       <Router>
       <Routes>
               <Route path="/" element={<Home/>} />
-              <Route path="/profile" element={<Profile stylePaddings={{paddingBottom : "15px", paddingTop:"15px"}}/>} />
-              <Route path="/connection" element={<Connection/>} />
+              <Route path="/profile" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
+              <Route path="/connection" element={<Connection stylePaddings={{paddingBottom : "150px", paddingTop:"100px"}}/>} />
             </Routes>
       </Router>
       <Footer/>
