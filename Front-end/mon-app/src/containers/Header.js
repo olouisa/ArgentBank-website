@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from "../assets/img/argentBankLogo.png";
 import "../styles/pages.css";
 import SignIn from '../components/SignIn';
 import SignOut from '../components/SignOut';
+import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 
@@ -11,6 +12,9 @@ import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   const style = {paddingRight:"5px"};
+const location = useLocation();
+console.log(location);
+
   return (
     <div>
           <nav className="main-nav">
@@ -23,8 +27,12 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </a>
       <div>
-       <SignIn style={style} />
-       <SignOut style={style}/>
+
+   {
+    location.pathname === "/profile" ? <SignOut style={style}/> : <SignIn style={style} />
+   }
+
+
       </div>
     </nav>
     </div>
