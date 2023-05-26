@@ -11,7 +11,7 @@ function Profile({stylePaddings={}}) {
     <div>
         <main style={{...stylePaddings}} className="main bg-dark">
    <HeaderUser/>
-      <h2 class="sr-only">Accounts</h2>
+      <h2 className="sr-only">Accounts</h2>
       {Data.accounts.map((account) => {
         return (
           <Account key={account.id} title={account.title} amount={account.amount} description={account.description} />
