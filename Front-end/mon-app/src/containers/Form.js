@@ -3,6 +3,8 @@ import FormButton from '../components/FormButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../actions/post.action';
+import authSlice from '../redux/authSlice';
+import {signInUser} from "../redux/authSlice";
 
 function Form() {
  const [username, setUsername] = useState("");
@@ -19,6 +21,7 @@ const dispatch = useDispatch();
 const handleForm = async (e) => {
   e.preventDefault();
   console.log(username, password);
+  dispatch(signInUser({username, password}))
  
 
 }
