@@ -1,10 +1,8 @@
-import React, { useRef } from 'react';
 import FormButton from '../components/FormButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from '../actions/post.action';
-import authSlice from '../redux/authSlice';
-import {signInUser} from "../redux/authSlice";
+import { postData } from '../store';
+
 
 function Form() {
  const [username, setUsername] = useState("");
@@ -13,15 +11,11 @@ function Form() {
 
 const user = useSelector((state) => state.userReducer);
 const dispatch = useDispatch();
-// const changeValue = (e) => {
-//   setUsername(e.target.value);
-//   setEmail(e.target.value)
-// }
 
 const handleForm = async (e) => {
   e.preventDefault();
   console.log(username, password);
-  dispatch(signInUser({username, password}))
+  dispatch(postData({username, password}))
  
 
 }
