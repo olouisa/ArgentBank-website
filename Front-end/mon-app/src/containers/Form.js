@@ -1,7 +1,8 @@
 import FormButton from '../components/FormButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { postData } from '../store';
+import { hasToken } from '../selectors';
+import { getToken } from '../actions';
 
 
 function Form() {
@@ -9,14 +10,13 @@ function Form() {
  const [password, setPassword] = useState("");
 
 
-const user = useSelector((state) => state.userReducer);
 const dispatch = useDispatch();
 
 const handleForm = async (e) => {
   e.preventDefault();
   console.log(username, password);
-  dispatch(postData({username, password}))
- 
+  
+ dispatch(getToken(fetchToken));
 
 }
 

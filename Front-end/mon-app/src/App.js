@@ -6,8 +6,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './containers/Header';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+
 
 
 function App() {
