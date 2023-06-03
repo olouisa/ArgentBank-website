@@ -16,7 +16,7 @@ const handleForm = async (e) => {
   e.preventDefault();
   console.log(username, password);
   
- dispatch(getToken(fetchToken));
+ dispatch(getToken(""));
 
 }
 
