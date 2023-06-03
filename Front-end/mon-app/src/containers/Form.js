@@ -3,20 +3,28 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hasToken } from '../selectors';
 import { getToken } from '../actions';
+import { postUserData } from '../selectors';
 
 
 function Form() {
  const [username, setUsername] = useState("");
  const [password, setPassword] = useState("");
+ const token = useSelector((state) => state.token);
+ console.log(token);
+
+ 
 
 
 const dispatch = useDispatch();
 
 const handleForm = async (e) => {
   e.preventDefault();
-  console.log(username, password);
-  
- dispatch(getToken(""));
+  let data = await postUserData(username, password);
+  console.log(data);
+  console.log(data.body.token);
+  const userToken = data.body.token;
+  console.log(username, password);  
+ dispatch(getToken(userToken));
 
 }
 
