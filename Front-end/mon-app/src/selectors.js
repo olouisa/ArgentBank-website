@@ -1,6 +1,6 @@
-export const hasToken = (token) => {return (state) => state.token = token}
+export const hasToken = (token) => { return (state) => state.token = token }
 
-export async function postUserData(_email, _passWord)  {
+export async function postUserData(_email, _passWord) {
     let data = {
         email: _email,
         password: _passWord

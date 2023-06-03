@@ -5,7 +5,7 @@
 
 export const getToken = (fetchToken) => ({
     type: "getToken",
-    payload: {token: fetchToken}
+    payload: { token: fetchToken }
 
 });
 
@@ -13,7 +13,7 @@ export const getToken = (fetchToken) => ({
 
 
 
-    
+
 
 
 
