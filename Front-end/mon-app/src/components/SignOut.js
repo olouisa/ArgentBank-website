@@ -7,12 +7,11 @@ import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
 function SignOut({style}) {
-  const user = useSelector((state) => state.userReducer);
   return (
     <div>
          <Link to="/profile" className="main-nav-item">
          <FontAwesomeIcon style={style} icon={faCircleUser} />
-          {user.firstName}
+          Tony
         </Link>
         <Link to="/" className="main-nav-item">
         <FontAwesomeIcon style={style} icon={faRightFromBracket} /> 

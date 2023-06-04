@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hasToken } from '../selectors';
 import { getToken } from '../actions';
 import { postUserData } from '../selectors';
-
+import { postUserToken } from '../selectors';
+import { useNavigate } from 'react-router-dom';
 
 function Form() {
+  let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector((state) => state.token);
   console.log(token);
-
   const dispatch = useDispatch();
+
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
@@ -21,6 +23,15 @@ function Form() {
     const userToken = data.body.token;
     console.log(username, password);
     dispatch(getToken(userToken));
+    localStorage.setItem("token", userToken);
+
+    if (userToken) {
+      let token = localStorage.getItem("token")
+      let userDatas = await postUserToken(token);
+      console.log(userDatas);
+      navigate("/profile");
+    }
+
 
   }
 
