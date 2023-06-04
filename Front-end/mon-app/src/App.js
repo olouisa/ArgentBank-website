@@ -11,13 +11,12 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-let userId = useSelector((state)=> state.id)
 
   return (
     <div className="App">
       
       <Router>
-      <Header id={userId} />
+      <Header/>
       <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/profile/:id" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />

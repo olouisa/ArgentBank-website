@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 
 
 
-function Profile({ stylePaddings = {} }) {
-  const { id } = useParams();
+function Profile({stylePaddings = {} }) {
+  // const { id } = useParams();
   const userId = useSelector((state) => state.id);
   const userFirstName = useSelector((state) => state.firstname);
 

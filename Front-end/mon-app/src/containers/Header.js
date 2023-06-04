@@ -4,13 +4,15 @@ import "../styles/pages.css";
 import SignIn from '../components/SignIn';
 import SignOut from '../components/SignOut';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 
 
 
 
-function Header({id}) {
+function Header() {
+  let id = useSelector((state)=> state.id);
   const style = {paddingRight:"5px"};
 const location = useLocation();
 // console.log(location);
