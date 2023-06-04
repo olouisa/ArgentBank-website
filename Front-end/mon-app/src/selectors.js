@@ -18,16 +18,14 @@ export async function postUserData(_email, _passWord) {
 };
 
 export async function postUserToken(_token) {
-    let data = {
-        token: _token
-    }
+  
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
         method: "post",
         headers: {
             "content-type": "application/json",
-            "accept": "application/json"
-        },
-        body: JSON.stringify(data)
+            "accept": "application/json",
+            'Authorization': `Bearer ${_token}`
+        }
 
     });
     return await response.json();

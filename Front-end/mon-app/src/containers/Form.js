@@ -27,7 +27,7 @@ function Form() {
 
     if (userToken) {
       let token = localStorage.getItem("token")
-      let userDatas = await postUserToken(token);
+      let userDatas = await postUserToken(userToken);
       console.log(userDatas);
       navigate("/profile");
     }
