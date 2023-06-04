@@ -10,7 +10,7 @@ import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 
 
 
-function Header() {
+function Header({id}) {
   const style = {paddingRight:"5px"};
 const location = useLocation();
 // console.log(location);
@@ -29,7 +29,7 @@ const location = useLocation();
       <div>
 
    {
-    location.pathname === "/profile" ? <SignOut style={style}/> : <SignIn style={style} />
+    location.pathname === "/profile/"+id ? <SignOut style={style}/> : <SignIn style={style} />
    }
 
 

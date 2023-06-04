@@ -6,17 +6,18 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './containers/Header';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
-
+let userId = useSelector((state)=> state.id)
 
   return (
     <div className="App">
       
       <Router>
-      <Header />
+      <Header id={userId} />
       <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/profile/:id" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
