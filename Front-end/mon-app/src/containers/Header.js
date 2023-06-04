@@ -13,7 +13,7 @@ import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
 function Header() {
   const style = {paddingRight:"5px"};
 const location = useLocation();
-console.log(location);
+// console.log(location);
 
   return (
     <div>

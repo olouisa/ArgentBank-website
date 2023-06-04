@@ -6,7 +6,7 @@ import "../styles/pages.css";
 
 
 function Account({title, amount, description}) {
-  console.log(Data.accounts);
+  // console.log(Data.accounts);
   return (
     <div>
             <section className="account">
