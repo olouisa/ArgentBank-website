@@ -9,6 +9,16 @@ export const getToken = (fetchToken) => ({
 
 });
 
+export const getUserDatas = (_id, _firstname, _username) => ({
+    type: "getUserDatas",
+    payload: {
+        id: _id,
+        firstname: _firstname,
+        username: _username
+    }
+
+    });
+
 
 
 

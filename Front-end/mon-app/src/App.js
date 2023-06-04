@@ -19,9 +19,9 @@ function App() {
       <Header />
       <Routes>
               <Route path="/" element={<Home/>} />
-              <Route path="/profile" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
+              <Route path="/profile/:id" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
               <Route path="/connection" element={<Connection stylePaddings={{paddingBottom : "150px", paddingTop:"100px"}}/>} />
-              <Route path="*" element={<Home/>} />
+              {/* <Route path="*" element={<Home/>} /> */}
 
             </Routes>
       </Router>

@@ -2,7 +2,7 @@ import FormButton from '../components/FormButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hasToken } from '../selectors';
-import { getToken } from '../actions';
+import { getToken, getUserDatas } from '../actions';
 import { postUserData } from '../selectors';
 import { postUserToken } from '../selectors';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,11 @@ function Form() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector((state) => state.token);
-  console.log(token);
+  const id = useSelector((state) => state.id);
+  const firstName = useSelector((state) => state.firstname);
+  const userName = useSelector((state) => state.username);
+
+  console.log(id, firstName, userName, token);
   const dispatch = useDispatch();
 
   const handleForm = async (e) => {
@@ -23,13 +27,15 @@ function Form() {
     const userToken = data.body.token;
     console.log(username, password);
     dispatch(getToken(userToken));
-    localStorage.setItem("token", userToken);
+    // localStorage.setItem("token", userToken);
 
     if (userToken) {
-      let token = localStorage.getItem("token")
+      // let token = localStorage.getItem("token")
       let userDatas = await postUserToken(userToken);
       console.log(userDatas);
-      navigate("/profile");
+      let userData = userDatas.body;
+      dispatch(getUserDatas(userData.id, userData.firstName, userData.userName))
+      navigate("/profile/"+id);
     }
 
 
