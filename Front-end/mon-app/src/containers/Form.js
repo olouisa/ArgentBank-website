@@ -6,6 +6,7 @@ import { getToken, getUserDatas } from '../actions';
 import { postUserData } from '../selectors';
 import { postUserToken } from '../selectors';
 import { useNavigate } from 'react-router-dom';
+import { showErrorMsg } from '../actions';
 
 function Form() {
   let navigate = useNavigate();
@@ -15,6 +16,7 @@ function Form() {
   const id = useSelector((state) => state.id);
   const firstName = useSelector((state) => state.firstname);
   const userName = useSelector((state) => state.username);
+  const errorMsg = useSelector((state) => state.errorMsg);
 
   console.log(id, firstName, userName, token);
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function Form() {
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
+    dispatch(showErrorMsg());
     console.log(data);
     console.log(data.body.token);
     const userToken = data.body.token;
@@ -36,7 +39,8 @@ function Form() {
       let userData = userDatas.body;
       dispatch(getUserDatas(userData.id, userData.firstName, userData.userName))
       navigate("/profile/"+id);
-    }
+    }  
+    
 
 
   }
@@ -50,6 +54,8 @@ function Form() {
         <div className="input-wrapper">
           <label>Password</label><input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
+        <p style={{"color": "red"}}>{errorMsg}</p>
+
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label>Remember me</label>
         </div>

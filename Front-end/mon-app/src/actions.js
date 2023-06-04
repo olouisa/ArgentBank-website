@@ -19,6 +19,12 @@ export const getUserDatas = (_id, _firstname, _username) => ({
 
     });
 
+    export const showErrorMsg = () => ({
+        type :"showErrorMsg",
+        payload: {
+            errorMsg : "Identifiant ou mot de passe incorrect",
+        }
+    })
 
 
 

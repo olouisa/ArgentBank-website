@@ -6,7 +6,10 @@ const initialState= {
     token : null,
     id: null,
     firstname: "",
-    username: ""
+    username: "",
+    password: null,
+    errorMsg: null,
+  
 }
 
 export const store = createStore(reducer, initialState);
@@ -26,6 +29,24 @@ export function reducer(state = initialState, action) {
             draft.username= action.payload.username
         })
     }
+  if(action.type === "showErrorMsg") {
+    return produce(state, (draft) => {
+        if(!draft.token) {
+            draft.errorMsg = action.payload.errorMsg;
+        }
+       
+    })
+  }
+    // if(action.type === "showMailMsg") {
+    //     return produce(state, (draft) => {
+    //         draft.errormail = "Identifiant incorrect"
+    //     })
+    // }
+    // if(action.type === "showPassMsg") {
+    //     return produce(state, (draft) => {
+    //         draft.errorpassword = "Mot de passe incorrect"
+    //     })
+    // }
     return state
 
 
