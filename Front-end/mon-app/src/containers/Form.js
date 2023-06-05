@@ -30,16 +30,18 @@ function Form() {
     console.log(data.body.token);
     const userToken = data.body.token;
     console.log(username, password);
-    dispatch(getToken(userToken));
+    localStorage.setItem("token", userToken);
+
+    dispatch(getToken(localStorage.getItem("token")));
 
     if (userToken) {
       // let token = localStorage.getItem("token")
       let userDatas = await postUserToken(userToken);
       console.log(userDatas);
       let userData = userDatas.body;
-      dispatch(getUserDatas(userData.id, userData.firstName, userData.userName))
+      dispatch(getUserDatas(userData.id, userData.firstName, userData.userName, userData.lastName));
+      console.log(userData.userName);
       navigate("/profile/" + id);
-      localStorage.setItem("token", userToken);
 
     }
 

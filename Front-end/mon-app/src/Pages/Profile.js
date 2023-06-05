@@ -11,12 +11,12 @@ import { useSelector } from 'react-redux';
 function Profile({stylePaddings = {} }) {
   // const { id } = useParams();
   const userId = useSelector((state) => state.id);
-  const userFirstName = useSelector((state) => state.firstname);
+  const username = useSelector((state) => state.username);
 
   return (
     <div>
       <main style={{ ...stylePaddings }} className="main bg-dark">
-        <HeaderUser id={userId} firstname={userFirstName} />
+        <HeaderUser id={userId} username={username} />
         <h2 className="sr-only">Accounts</h2>
         {Data.accounts.map((account) => {
           return (

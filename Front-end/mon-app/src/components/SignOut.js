@@ -8,25 +8,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import { clearDatas } from '../actions';
 
 function SignOut({style}) {
- let firstname = useSelector((state) => state.firstname);
+ let username = useSelector((state) => state.username);
  const dispatch = useDispatch();
- let token = useDispatch((state) => state.token);
- let id = useDispatch((state) => state.id);
+ let token = useSelector((state) => state.token);
+ let id = useSelector((state) => state.id);
 
 const handleClick = () => {
   dispatch(clearDatas());
-  console.log(firstname, token, id);
   localStorage.clear();
+  console.log(username, token, id);
 
 
 }
 
 
+
   return (
     <div>
-         <Link to="/profile" className="main-nav-item">
+         <Link to={"/profile/" + id} className="main-nav-item">
          <FontAwesomeIcon style={style} icon={faCircleUser} />
-          {firstname}
+          {username}
         </Link>
         <Link  onClick={()=> {handleClick()}} to="/" className="main-nav-item">
         <FontAwesomeIcon style={style} icon={faRightFromBracket} /> 

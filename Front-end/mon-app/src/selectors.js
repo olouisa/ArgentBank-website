@@ -30,3 +30,22 @@ export async function postUserToken(_token) {
     });
     return await response.json();
 };
+
+export async function editName(_token,_username) {
+   
+let user_name = {
+    userName: _username
+}
+    const response = await fetch(`http://localhost:3001/api/v1/user/profile`, {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json",
+            "accept": "application/json",
+            'Authorization': `Bearer ${_token}`
+        },
+        body: JSON.stringify(user_name)
+
+    })
+    console.log(response);
+    return response;
+}

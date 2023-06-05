@@ -7,6 +7,7 @@ const initialState= {
     id: null,
     firstname: "",
     username: "",
+    lastname: "",
     password: null,
     errorMsg: null
   
@@ -26,7 +27,8 @@ export function reducer(state = initialState, action) {
         return produce(state, (draft) => {
             draft.id = action.payload.id;
             draft.firstname = action.payload.firstname;
-            draft.username= action.payload.username
+            draft.username= action.payload.username;
+            draft.lastname = action.payload.lastname
         })
     }
   if(action.type === "showErrorMsg") {
@@ -47,7 +49,11 @@ export function reducer(state = initialState, action) {
         draft.errorMsg = null
     })
   }
-
+if(action.type === "changeName") {
+    return produce(state, (draft) => {
+        draft.username = action.payload.username
+    })
+}
 
 
     // if(action.type === "showMailMsg") {
