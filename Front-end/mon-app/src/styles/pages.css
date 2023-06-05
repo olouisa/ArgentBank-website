@@ -48,7 +48,15 @@ body {
   padding: 5px 20px;
 }
 
-.main-nav a {
+.main-nav-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 50px;
+}
+
+/* .main-nav a => remplacé par  */
+.main-nav-item{
   font-weight: bold;
   color: #2c3e50;
 }
@@ -62,7 +70,10 @@ body {
   margin-right: 0.5rem;
 }
 
-.main-nav-item:hover {
+.main-nav-item:hover  {
+  text-decoration: underline;
+}
+.main-nav-a-edit:hover {
   text-decoration: underline;
 }
 
@@ -75,7 +86,32 @@ body {
   max-width: 100%;
   width: 200px;
 }
+.main-nav-a-edit {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #61b37b;
+  gap: 10px;
+  font-size: 23px;
+  font-weight: 400;
+}
 
+.signOut-edit {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color:#61b37b;
+  gap: 20px;
+}
+.nav-img  {
+  width: 45px;
+}
+/* .setting   {
+  width: 45px;
+}
+.deconnect   {
+  width: 45px;
+} */
 .hero {
   background-image: url('../assets/img/bank-tree.jpeg');
   background-position: 0 -50px;
@@ -335,6 +371,12 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+}
+.account-content-arrow {
+  width: 35px;
+}
+.transaction-button-arrow .arrowImg {
+  width: 100%;
 }
 
 @media (min-width: 720px) {
