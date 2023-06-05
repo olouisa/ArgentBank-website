@@ -2,18 +2,23 @@ import React from 'react';
 import AccountButton from '../components/AccountButton';
 import Data from "../Lists/features.json";
 import "../styles/pages.css";
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 
 
 function Account({title, amount, description}) {
+  const location = useLocation();
+  let userId = useSelector((state) => state.id);
   // console.log(Data.accounts);
   return (
     <div>
-            <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">{title}</h3>
-          <p className="account-amount">{amount}</p>
-          <p className="account-amount-description">{description}</p>
+            <section className={location.pathname === "/edit/"+userId ? "account-edit" : "account" }>
+        <div className="account-content-wrapper-edit account-content-wrapper" >
+          <h3 className="account-title account-title-edit">{title}</h3>
+          <p className={location.pathname === "/edit/"+userId ? "account-amount-edit" : "account-amount" }      >{amount}</p>
+          <p className="account-amount-description account-amount-description-edit">{description}</p>
         </div>
        <AccountButton/>
       </section>

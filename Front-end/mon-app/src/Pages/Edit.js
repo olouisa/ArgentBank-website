@@ -60,7 +60,7 @@ function Edit({ stylePaddings = {} }) {
                     </div>
 
                 </form>
-                <main style={{ ...stylePaddings }} className="main bg-dark">
+                <main style={{ ...stylePaddings}} className="main bg-dark main-bg-white">
 
                 <h2 className="sr-only">Accounts</h2>
                 {Data.accounts.map((account) => {
