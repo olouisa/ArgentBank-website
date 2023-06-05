@@ -25,12 +25,12 @@ function Form() {
     e.preventDefault();
     let data = await postUserData(username, password);
     dispatch(showErrorMsg());
+
     console.log(data);
     console.log(data.body.token);
     const userToken = data.body.token;
     console.log(username, password);
     dispatch(getToken(userToken));
-    // localStorage.setItem("token", userToken);
 
     if (userToken) {
       // let token = localStorage.getItem("token")
@@ -38,9 +38,11 @@ function Form() {
       console.log(userDatas);
       let userData = userDatas.body;
       dispatch(getUserDatas(userData.id, userData.firstName, userData.userName))
-      navigate("/profile/"+id);
-    }  
-    
+      navigate("/profile/" + id);
+      localStorage.setItem("token", userToken);
+
+    }
+
 
 
   }
@@ -54,7 +56,7 @@ function Form() {
         <div className="input-wrapper">
           <label>Password</label><input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <p style={{"color": "red"}}>{errorMsg}</p>
+        <p style={{ "color": "red" }}>{errorMsg}</p>
 
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label>Remember me</label>

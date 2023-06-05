@@ -18,6 +18,7 @@ const location = useLocation();
 // console.log(location);
 
   return (
+    
     <div>
           <nav className="main-nav">
       <a className="main-nav-logo" href="./index.html">
@@ -31,7 +32,7 @@ const location = useLocation();
       <div>
 
    {
-    location.pathname === "/profile/"+id ? <SignOut style={style}/> : <SignIn style={style} />
+    id ? <SignOut style={style}/> : <SignIn style={style} />
    }
 
 

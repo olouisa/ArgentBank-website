@@ -24,6 +24,10 @@ export const getUserDatas = (_id, _firstname, _username) => ({
         payload: {
             errorMsg : "Identifiant ou mot de passe incorrect",
         }
+    });
+
+    export const clearDatas = () => ({
+        type: "clearDatas"
     })
 
 

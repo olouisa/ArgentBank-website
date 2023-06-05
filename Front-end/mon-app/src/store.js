@@ -8,7 +8,7 @@ const initialState= {
     firstname: "",
     username: "",
     password: null,
-    errorMsg: null,
+    errorMsg: null
   
 }
 
@@ -37,6 +37,19 @@ export function reducer(state = initialState, action) {
        
     })
   }
+  if(action.type === "clearDatas") {
+    return produce(state, (draft) => {
+        draft.token = null;
+        draft.id= null;
+        draft.firstname= "";
+        draft.username= "";
+        draft.password= null;
+        draft.errorMsg = null
+    })
+  }
+
+
+
     // if(action.type === "showMailMsg") {
     //     return produce(state, (draft) => {
     //         draft.errormail = "Identifiant incorrect"
@@ -54,7 +67,10 @@ export function reducer(state = initialState, action) {
 
 
 
-
+store.subscribe(() => {
+    console.log("Nouveau state:");
+    console.log(store.getState());
+  });
 
 
 
