@@ -36,6 +36,9 @@ function Edit({ stylePaddings = {} }) {
 
         console.log(userName);
     }
+    const cancel = () => {
+        navigate("/profile/" + userId);
+    }
 
     return (
         <div>
@@ -53,7 +56,7 @@ function Edit({ stylePaddings = {} }) {
 
                     <div className="input-remember">
                     < button  onClick={(e) => handleForm(e)}>Save</button>
-                    < button>Cancel</button>
+                    < button onClick={(e) => cancel()}>Cancel</button>
                     </div>
 
                 </form>
