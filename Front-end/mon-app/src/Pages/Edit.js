@@ -42,24 +42,26 @@ function Edit({ stylePaddings = {} }) {
 
     return (
         <div>
-            <main style={{ ...stylePaddings }} className="main bg-dark">
-                <form>
-                    <div className="input-wrapper">
-                        <label>User name</label><input type="text" id="username" onChange={(e) => setUsername(e.target.value)} />
+                <form className='sign-in-content edit-content'>
+                    <h2 className='edit-title'>Edit user info</h2>
+                    <div className="input-wrapper_edit">
+                        <label>User name:</label> <input className='input-edit' type="text" id="username" onChange={(e) => setUsername(e.target.value)} />
                     </div>
-                    <div className="input-wrapper">
-                        <label>First name</label><input type="text" defaultValue={firstname} disabled="disabled"/>
+                    <div className="input-wrapper_edit">
+                        <label>First name:</label> <input className='input-edit' type="text" defaultValue={firstname} disabled="disabled"/>
                     </div>
-                    <div className="input-wrapper">
-                        <label>Last name</label><input type="text" defaultValue={lastname} disabled="disabled" />
+                    <div className="input-wrapper_edit">
+                        <label>Last name:</label> <input className='input-edit' type="text" defaultValue={lastname} disabled="disabled" />
                     </div>
 
-                    <div className="input-remember">
-                    < button  onClick={(e) => handleForm(e)}>Save</button>
-                    < button onClick={(e) => cancel()}>Cancel</button>
+                    <div className="input-remember edit-buttons">
+                    < button className='sign-in-button sign-in-button-edit' onClick={(e) => handleForm(e)}>Save</button>
+                    < button className='sign-in-button sign-in-button-edit' onClick={(e) => cancel()}>Cancel</button>
                     </div>
 
                 </form>
+                <main style={{ ...stylePaddings }} className="main bg-dark">
+
                 <h2 className="sr-only">Accounts</h2>
                 {Data.accounts.map((account) => {
                     return (
