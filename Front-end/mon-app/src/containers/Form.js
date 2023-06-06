@@ -24,15 +24,18 @@ function Form() {
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
+    
     dispatch(showErrorMsg());
-
+if(data.status !== 200 ) {
+  return
+}
     console.log(data);
     console.log(data.body.token);
     const userToken = data.body.token;
     console.log(username, password);
     localStorage.setItem("token", userToken);
 
-    dispatch(getToken(localStorage.getItem("token")));
+    dispatch(getToken(userToken));
 
     if (userToken) {
       // let token = localStorage.getItem("token")
@@ -41,7 +44,7 @@ function Form() {
       let userData = userDatas.body;
       dispatch(getUserDatas(userData.id, userData.firstName, userData.userName, userData.lastName));
       console.log(userData.userName);
-      navigate("/profile/" + id);
+      navigate("/profile/" + userData.id);
 
     }
 

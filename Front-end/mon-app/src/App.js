@@ -7,11 +7,10 @@ import Footer from './components/Footer';
 import Header from './containers/Header';
 import Edit from './Pages/Edit';
 import React from 'react';
-import { useSelector } from 'react-redux';
-
 
 
 function App() {
+
 
   return (
     <div className="App">

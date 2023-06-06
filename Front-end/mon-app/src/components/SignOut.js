@@ -21,7 +21,7 @@ function SignOut({ style }) {
   const handleClick = () => {
     dispatch(clearDatas());
     localStorage.clear();
-    console.log(username, token, id);
+    console.log(username, token);
 
 
   }
