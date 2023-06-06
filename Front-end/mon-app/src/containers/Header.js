@@ -50,8 +50,6 @@ function Header() {
 
 
 
-  let id = useSelector((state) => state.id);
-  let userName = useSelector((state) => state.username);
   const style = { paddingRight: "5px" };
   const location = useLocation();
   // console.log(location);
@@ -59,11 +57,11 @@ function Header() {
   return (
 
     <div>
-      <nav className={location.pathname === "/edit/" + id ? "main-nav-edit" : "main-nav"}>
+      <nav className={location.pathname === "/edit" ? "main-nav-edit" : "main-nav"}>
         <a className="main-nav-logo" href="./index.html">
           <img
             className="main-nav-logo-image"
-            src={location.pathname === "/edit/" + id ? LogoEdit : Logo}
+            src={location.pathname === "/edit" ? LogoEdit : Logo}
             alt="Argent Bank Logo"
           />
           <h1 className="sr-only">Argent Bank</h1>
@@ -71,7 +69,7 @@ function Header() {
         <div>
 
           {
-            id ? <SignOut style={style} /> : <SignIn style={style} />
+          token ? <SignOut style={style} /> : <SignIn style={style} />
           }
 
 

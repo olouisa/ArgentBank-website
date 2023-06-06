@@ -4,11 +4,9 @@ import {produce} from "immer";
 
 const initialState= {
     token : null,
-    id: null,
     firstname: "",
     username: "",
     lastname: "",
-    password: null,
     errorMsg: null
   
 }
@@ -25,7 +23,6 @@ export function reducer(state = initialState, action) {
 
     if(action.type === "getUserDatas") {
         return produce(state, (draft) => {
-            draft.id = action.payload.id;
             draft.firstname = action.payload.firstname;
             draft.username= action.payload.username;
             draft.lastname = action.payload.lastname

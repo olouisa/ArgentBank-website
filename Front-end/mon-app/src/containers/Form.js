@@ -14,13 +14,12 @@ function Form() {
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const token = useSelector((state) => state.token);
-  const id = useSelector((state) => state.id);
   const firstName = useSelector((state) => state.firstname);
   const userName = useSelector((state) => state.username);
   const errorMsg = useSelector((state) => state.errorMsg);
 
 
-  console.log(id, firstName, userName, token);
+  console.log(firstName, userName, token);
   console.log(isChecked);
   const dispatch = useDispatch();
   const handleOnChange = () => {
@@ -49,9 +48,9 @@ function Form() {
       let userDatas = await postUserToken(userToken);
       console.log(userDatas);
       let userData = userDatas.body;
-      dispatch(getUserDatas(userData.id, userData.firstName, userData.userName, userData.lastName));
+      dispatch(getUserDatas(userData.firstName, userData.userName, userData.lastName));
       console.log(userData.userName);
-      navigate("/profile/" + userData.id);
+      navigate("/profile");
 
     }
 

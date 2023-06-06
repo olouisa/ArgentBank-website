@@ -21,8 +21,8 @@ function App() {
       <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/connection" element={<Connection stylePaddings={{paddingBottom : "150px", paddingTop:"100px"}}/>} />
-              <Route path="/profile/:id" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
-             <Route path='/edit/:id' element={<Edit stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}} />}/>
+              <Route path="/profile" element={<Profile stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}}/>} />
+             <Route path='/edit' element={<Edit stylePaddings={{paddingBottom : "55px", paddingTop:"15px"}} />}/>
               {/* <Route path="*" element={<Home/>} /> */}
 
             </Routes>

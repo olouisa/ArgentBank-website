@@ -16,7 +16,6 @@ function SignOut({ style }) {
   const dispatch = useDispatch();
   const location = useLocation();
   let token = useSelector((state) => state.token);
-  let id = useSelector((state) => state.id);
 
   const handleClick = () => {
     dispatch(clearDatas());
@@ -29,9 +28,9 @@ function SignOut({ style }) {
 
 
   return (
-    location.pathname === "/edit/" + id ?
+    location.pathname === "/edit"?
       <div className='signOut-edit'>
-        <Link to={"/profile/" + id} className="main-nav-a-edit">
+        <Link to={"/profile"} className="main-nav-a-edit">
           {username} <img className='profileImg nav-img' src={ProfileEdit} alt='logo de profile' />
         </Link>
         <Link className='setting-link main-nav-a-edit'><img className='setting nav-img' src={Settings} alt='logo pour les paramètres' /></Link>
@@ -39,7 +38,7 @@ function SignOut({ style }) {
       </div>
       :
       <div>
-        <Link to={"/profile/" + id} className="main-nav-item">
+        <Link to={"/profile"} className="main-nav-item">
           <FontAwesomeIcon style={style} icon={faCircleUser} />
           {username}
         </Link>

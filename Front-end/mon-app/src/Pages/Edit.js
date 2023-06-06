@@ -10,12 +10,12 @@ import { changeName } from '../actions';
 import { getUserDatas } from '../actions';
 import { postUserToken } from '../selectors';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Edit({ stylePaddings = {} }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [username, setUsername] = useState("");
-    const userId = useSelector((state) => state.id);
     const userName = useSelector((state) => state.username);
     const firstname = useSelector((state) => state.firstname);
     const lastname = useSelector((state)=> state.lastname);
@@ -32,16 +32,21 @@ function Edit({ stylePaddings = {} }) {
         let userData = userDatas.body;
         dispatch(changeName(userData.userName));
         console.log(userData.userName);
-        navigate("/profile/" + userId);
+        navigate("/profile");
 
         console.log(userName);
     }
     const cancel = () => {
-        navigate("/profile/" + userId);
+        navigate("/profile");
     }
+   useEffect(() => {
+    if(token == null || token==="") {
+        navigate("/connection")
+    }
+   },[token])
 
     return (
-        <div>
+         <div>
                 <form className='sign-in-content edit-content'>
                     <h2 className='edit-title'>Edit user info</h2>
                     <div className="input-wrapper_edit">
@@ -65,14 +70,15 @@ function Edit({ stylePaddings = {} }) {
                 <h2 className="sr-only">Accounts</h2>
                 {Data.accounts.map((account) => {
                     return (
-                        <Account id={userId} key={account.id} title={account.title} amount={account.amount} description={account.description} />
+                        <Account  key={account.id} title={account.title} amount={account.amount} description={account.description} />
 
                     )
 
                 })
                 }
             </main>
-        </div>
+        </div> 
+       
     )
 }
 
