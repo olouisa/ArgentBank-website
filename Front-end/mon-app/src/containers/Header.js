@@ -13,64 +13,70 @@ import { getUserDatas } from '../actions';
 import { useDispatch } from 'react-redux';
 import { getToken } from '../actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 
 
 
 function Header() {
-  const token = useSelector((state)=> state.token);
+  const token = useSelector((state) => state.token);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const checked = localStorage.getItem("checked");
+
   useEffect(() => {
     console.log(token);
-    let tokenLocalStor = localStorage.getItem("token");
+    console.log(checked);
+  let tokenLocalStor = localStorage.getItem("token");
+    
+      if ((token == null || token === "") && tokenLocalStor) {
+        if(checked==="true"){
+          dispatch(getToken(localStorage.getItem("token")));
+  
+          postUserToken(localStorage.getItem("token")).then((userDatas) => {
+            console.log(userDatas);
+            let userData = userDatas.body;
+            dispatch(getUserDatas(userData.id, userData.firstName, userData.userName, userData.lastName));
+            console.log(userData.userName);
+          });
+        } else { 
+          navigate("/connection");
+      }
+       
 
-  if((token== null || token=== "") && tokenLocalStor) {
-    // // navigate("/connection");
-    dispatch(getToken(localStorage.getItem("token")));
-
-     postUserToken(localStorage.getItem("token")).then((userDatas) => {
-      console.log(userDatas);
-      let userData = userDatas.body;
-      dispatch(getUserDatas(userData.id, userData.firstName, userData.userName, userData.lastName));
-      console.log(userData.userName);
-     });
- 
-
-  }
+ }
+  
   }, [token])
 
 
 
-  let id = useSelector((state)=> state.id);
+  let id = useSelector((state) => state.id);
   let userName = useSelector((state) => state.username);
-  const style = {paddingRight:"5px"};
-  const styleEdit= {padding: "28px 50px"}
-const location = useLocation();
-// console.log(location);
+  const style = { paddingRight: "5px" };
+  const location = useLocation();
+  // console.log(location);
 
   return (
-    
+
     <div>
-          <nav className={location.pathname==="/edit/"+id ? "main-nav-edit" : "main-nav"}>
-      <a className="main-nav-logo" href="./index.html">
-        <img
-          className="main-nav-logo-image"
-          src={location.pathname === "/edit/" + id  ? LogoEdit : Logo } 
-          alt="Argent Bank Logo"
-        />
-        <h1 className="sr-only">Argent Bank</h1>
-      </a>
-      <div>
+      <nav className={location.pathname === "/edit/" + id ? "main-nav-edit" : "main-nav"}>
+        <a className="main-nav-logo" href="./index.html">
+          <img
+            className="main-nav-logo-image"
+            src={location.pathname === "/edit/" + id ? LogoEdit : Logo}
+            alt="Argent Bank Logo"
+          />
+          <h1 className="sr-only">Argent Bank</h1>
+        </a>
+        <div>
 
-   {
-    id ? <SignOut style={style}/> : <SignIn style={style} />
-   }
+          {
+            id ? <SignOut style={style} /> : <SignIn style={style} />
+          }
 
 
-      </div>
-    </nav>
+        </div>
+      </nav>
     </div>
   )
 }

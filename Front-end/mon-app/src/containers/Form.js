@@ -12,23 +12,30 @@ function Form() {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
   const token = useSelector((state) => state.token);
   const id = useSelector((state) => state.id);
   const firstName = useSelector((state) => state.firstname);
   const userName = useSelector((state) => state.username);
   const errorMsg = useSelector((state) => state.errorMsg);
 
+
   console.log(id, firstName, userName, token);
+  console.log(isChecked);
   const dispatch = useDispatch();
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+  }
 
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
-    
     dispatch(showErrorMsg());
-if(data.status !== 200 ) {
-  return
-}
+    localStorage.setItem("checked", isChecked);
+
+    if (data.status !== 200) {
+      return
+    }
     console.log(data);
     console.log(data.body.token);
     const userToken = data.body.token;
@@ -64,7 +71,7 @@ if(data.status !== 200 ) {
         <p style={{ "color": "red" }}>{errorMsg}</p>
 
         <div className="input-remember">
-          <input type="checkbox" id="remember-me" /><label>Remember me</label>
+          <input type="checkbox" id="remember-me" checked={isChecked} onChange={handleOnChange}/><label>Remember me</label>
         </div>
         <FormButton />
       </form>
