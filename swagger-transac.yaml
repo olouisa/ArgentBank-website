@@ -18,6 +18,7 @@ schemes:
         "200" :
           description: Transaction data successfully obtained
           schema:
+          $ref: '#/definitions/TransactionResponse'
         "400" :
           description: Bad Request 
         "401":
