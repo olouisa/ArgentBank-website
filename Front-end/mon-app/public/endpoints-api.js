@@ -1,9 +1,7 @@
 
-// GET/user/transaction et
-// GET/user/transaction/{transactionId}
+// GET/user/transaction : Obtenir toutes les transactions du mois en cours
 
-
-const GetAllTransactions = {
+const responseAPI_GETAll = {
     "status": 200,
     "message": "données récupérées avec succès !",
     "transactions": [
@@ -57,8 +55,9 @@ const GetAllTransactions = {
         }
     ]
 };
+// GET/user/transaction/{transactionId} : Obtenir le détail d’une transaction
 
-const getOneTransaction = [
+const responseAPI_GETDetailsOfOne = [
     {
         "status": 200,
         "message": "données récupérées avec succès !",
@@ -91,7 +90,7 @@ const getOneTransaction = [
     }]
 
 
-// POST/user/transaction/{transactionId}/detail
+// POST/user/transaction/{transactionId}/detail : Ajouter des informations dans une transaction
 const bodyParametersPOST = {
     "note": "string"
 }
@@ -112,7 +111,7 @@ const responseAPI_POST =
     }
     ]
 
-// PUT/user/transaction/{transactionId}/detail
+// PUT/user/transaction/{transactionId}/detail : Modifier des informations dans une transaction
 const bodyParametersPUT = {
     "category": "string",
     "note": "string"
@@ -133,7 +132,7 @@ const responseApi_PUT =
     }
     ]
 
-// DELETE/user/transaction/{transactionId}/detail
+// DELETE/user/transaction/{transactionId}/detail : Supprimer des informations dans une transaction
 const bodyParametersDELETE = [{
     "category": [
         "string"
