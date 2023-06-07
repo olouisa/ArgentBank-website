@@ -16,7 +16,8 @@ function Form() {
   const token = useSelector((state) => state.token);
   const firstName = useSelector((state) => state.firstname);
   const userName = useSelector((state) => state.username);
-  const errorMsg = useSelector((state) => state.errorMsg);
+  const error = useSelector((state) => state.errorMsg);
+  // const [error, setError] = useState("")
 
 
   console.log(firstName, userName, token);
@@ -29,10 +30,11 @@ function Form() {
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
-    dispatch(showErrorMsg());
     localStorage.setItem("checked", isChecked);
 
     if (data.status !== 200) {
+          dispatch(showErrorMsg());
+      // setError("Identifiant ou mot de passe incorrect")
       return
     }
     console.log(data);
@@ -67,7 +69,7 @@ function Form() {
         <div className="input-wrapper">
           <label>Password</label><input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <p style={{ "color": "red" }}>{errorMsg}</p>
+        <p style={{ "color": "red" }}>{error}</p>
 
         <div className="input-remember">
           <input type="checkbox" id="remember-me" checked={isChecked} onChange={handleOnChange}/><label>Remember me</label>
