@@ -8,9 +8,9 @@ host: localhost:3001
 basePath: /api/v1
 schemes:
   - http
-tags:
-  -name: User Module
-  -name: Transactions
+tags: 
+  - name: User Module
+  - name: Transactions
 paths:
   /user/login:
     post:
@@ -104,32 +104,32 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-          # Transaction
-    /transactions:
-      get:
-        tags:
-          - Transactions
-        summary: Transactions
-        description: API to get all transactions of the current month
-        parameters:
-        responses:
+  /transactions:
+    get:
+      tags:
+        - Transactions
+      summary: Transactions
+      description: API to get all transactions of the current month
+      responses:
         "200" :
           description: Transactions data successfully obtained
           schema:
-          $ref: '#/definitions/TransactionsResponse'
+            $ref: '#/definitions/TransactionsResponse'
         "400" :
           description: Bad Request 
         "401":
-          description: No Authorization 
+          description: No Authorization
         "500" : 
           description: Internal Server Error
   /transactions/{transactionId}:
     get:
+      tags:
+        - Transactions
       summary: Transaction by id
       description: Return the details of a single transaction
       parameters:
-         - name: transactionId
-          in: path
+        - in: path
+          name: transactionId
           description: ID of transaction details to return
           required: true
           schema:
@@ -145,26 +145,27 @@ paths:
           description: No Authorization 
         "500" : 
           description: Internal Server Error
-    /transaction/{transactionId}/detail:
-      post:
-        security:
-            - Bearer: []
-        summary: Add information to a transaction
-        description: API for Add information to a single transaction
-        parameters:
-          - in: body
-            name: body
-             description: Add Payload
+  /transaction/{transactionId}/detail:
+    post:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: Add information to a transaction
+      description: API for Add information to a single transaction
+      parameters:
+        - in: body
+          name: body
+          description: Add Payload
           required: true
           schema:
             $ref: '#/definitions/AddDetail'
-           - name: transactionId
-          in: path
+        - in: path
+          name: transactionId
           description: ID of transaction detail to add
           required: true
-          schema:
-            type: integer
-          responses:
+          type: integer
+      responses:
         "200":
           description: Transaction data successfully added
           schema:
@@ -175,28 +176,74 @@ paths:
           description: No Authorization 
         "500" : 
           description: Internal Server Error
-      put: 
-        security:
-            - Bearer: []
-        summary: Edit information in a transaction
-        description: API for Edit information in a single transaction
-        parameters:
-           - in: body
-            name: body
-             description: Edit Payload
+    put: 
+      tags:
+        - Transactions
+      security:
+          - Bearer: []
+      summary: Modify information in a transaction
+      description: API for modify information in a single transaction
+      parameters:
+        - in: body
+          name: body
+          description: Modify Payload
           required: true
           schema:
-            $ref: '#/definitions/EditDetail'
-           - name: transactionId
-          in: path
-          description: ID of transaction detail to edit
+            $ref: '#/definitions/PutDetail'
+        - in: path
+          name: transactionId          
+          description: ID of transaction detail to modify
+          required: true
+          type: integer
+      response: 
+        "200":
+          description: Transaction data successfully modified
+          schema:
+            $ref: '#/definitions/PutDetailResponse'
+        "400" :
+          description: Bad Request 
+        "401":
+          description: No Authorization 
+        "500" : 
+          description: Internal Server Error    
+    delete:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: Delete information in a transaction
+      description: API for delete information in a single transaction
+      parameters:
+        - in: body
+          name: body
+          description: Delete Payload
           required: true
           schema:
-            type: integer
-      delete:        
-        security:
-            - Bearer: []  
-
+            $ref: '#/definitions/DeleteDetail'
+        - in: path
+          name: transactionId          
+          description: ID of transaction detail to delete
+          required: true
+          type: integer
+      response: 
+        "200":
+          description: Transaction data successfully deleted
+          schema:
+            $ref: '#/definitions/DeleteDetailResponse'
+        "400" :
+          description: Bad Request 
+        "401":
+          description: No Authorization 
+        "500" : 
+          description: Internal Server Error
+        
+          
+          
+          
+          
+          
+          
+          
 securityDefinitions:
   Bearer:
     type: apiKey

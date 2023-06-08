@@ -9,7 +9,7 @@ basePath: /api/v1
 schemes:
   - http
   paths:
-  /user/transactions:
+  /transactions:
       get:
         summary: Transactions
         description: API to get all transactions of the current month
@@ -25,7 +25,7 @@ schemes:
           description: No Authorization 
         "500" : 
           description: Internal Server Error
-  /user/transactions/{transactionId}:
+  /transactions/{transactionId}:
     get:
       summary: Transaction by id
       description: Return the details of a single transaction
@@ -47,7 +47,7 @@ schemes:
           description: No Authorization 
         "500" : 
           description: Internal Server Error
-    /user/transaction/{transactionId}/detail:
+    /transaction/{transactionId}/detail:
       post:
         security:
             - Bearer: []
@@ -64,8 +64,7 @@ schemes:
           in: path
           description: ID of transaction detail to add
           required: true
-          schema:
-            type: integer
+          type: integer
           responses:
         "200":
           description: Transaction data successfully added
@@ -79,22 +78,23 @@ schemes:
           description: Internal Server Error
       put: 
         security:
-            - Bearer: []
+          - Bearer: []
         summary: Edit information in a transaction
         description: API for Edit information in a single transaction
         parameters:
-           - in: body
+          - in: body
             name: body
-             description: Edit Payload
-          required: true
-          schema:
-            $ref: '#/definitions/EditDetail'
-           - name: transactionId
-          in: path
-          description: ID of transaction detail to edit
-          required: true
-          schema:
+            description: Edit Payload
+            required: true
+            schema:
+               $ref: '#/definitions/EditDetail'
+          - in: path
+            name: transactionId          
+            description: ID of transaction detail to edit
+            required: true
+            schema:
             type: integer
+            
       delete:        
         security:
             - Bearer: []  
