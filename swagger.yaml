@@ -235,15 +235,7 @@ paths:
         "401":
           description: No Authorization 
         "500" : 
-          description: Internal Server Error
-        
-          
-          
-          
-          
-          
-          
-          
+          description: Internal Server Error     
 securityDefinitions:
   Bearer:
     type: apiKey
