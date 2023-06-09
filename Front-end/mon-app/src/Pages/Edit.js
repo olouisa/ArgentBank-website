@@ -69,6 +69,8 @@ function Edit({ stylePaddings = {} }) {
 
                 <h2 className="sr-only">Accounts</h2>
                 {Data.accounts.map((account) => {
+                        console.log(account.title);
+
                     return (
                         <Account  key={account.id} title={account.title} amount={account.amount} description={account.description} />
 

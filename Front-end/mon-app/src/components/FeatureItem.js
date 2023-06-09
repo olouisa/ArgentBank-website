@@ -5,6 +5,7 @@ import "../styles/pages.css";
 
 
 function FeatureItem({ item }) {
+    
     return (
 
         <div className="feature-item">

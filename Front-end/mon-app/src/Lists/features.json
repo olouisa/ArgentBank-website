@@ -1,3 +1,4 @@
+
 { 
    "features" : [
  {
@@ -18,7 +19,7 @@
 
  {
     "id": "3",
-    "picture": "..assets/img/icon-security.png",
+    "picture": "../assets/img/icon-security.png",
     "title": "Security you can trust",
     "text": "We use top of the line encryption to make sure your data and money is always safe."
 

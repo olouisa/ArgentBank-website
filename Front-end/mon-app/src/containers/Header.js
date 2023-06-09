@@ -3,7 +3,7 @@ import Logo from "../assets/img/argentBankLogo.png";
 import "../styles/pages.css";
 import SignIn from '../components/SignIn';
 import SignOut from '../components/SignOut';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoEdit from "../assets/img/argentBankEdit.png";
 import { useNavigate } from 'react-router-dom';
@@ -58,14 +58,14 @@ function Header() {
 
     <div>
       <nav className={location.pathname === "/edit" ? "main-nav-edit" : "main-nav"}>
-        <a className="main-nav-logo" href="./index.html">
+        <Link className="main-nav-logo" to={"/"}>
           <img
             className="main-nav-logo-image"
             src={location.pathname === "/edit" ? LogoEdit : Logo}
             alt="Argent Bank Logo"
           />
           <h1 className="sr-only">Argent Bank</h1>
-        </a>
+        </Link>
         <div>
 
           {

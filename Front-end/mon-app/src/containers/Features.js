@@ -6,8 +6,10 @@ import Data from "../Lists/features.json";
 import FeatureItem from '../components/FeatureItem';
 
 function Features() {
-    // console.log(Data);
-    // console.log(Data.features)
+    console.log(Data);
+    console.log(Data.features)
+    
+  
   return (
     <div>
          <section className="features">
@@ -15,7 +17,7 @@ function Features() {
 
        {Data.features.map((item) => {
         return (
-            <FeatureItem  key={item.id} item={item}/>
+            <FeatureItem  key={item.id} item={item} />
 
         )
        }) }
