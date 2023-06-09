@@ -358,6 +358,63 @@ definitions:
                     type: string
             note:
               type: string
+  SingleTransactionResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      transactions:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+            date:
+              type: string
+            description:
+              type: string
+            amount:
+              type: string
+            balance:
+              type: string
+            details:
+              type: object
+              properties:
+                type:
+                  type: string
+                category:
+                  type: array
+                  items:
+                    type: string
+            note:
+              type: string
+  TransactionsResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+        description:
+          type: string
+        amount:
+          type: string
+        balance:
+          type: string
+        details:
+          type: object
+          properties:
+            type:
+              type: string
+            category:
+              type: array
+              items:
+                type: string   
 
 
 
