@@ -414,7 +414,14 @@ definitions:
             category:
               type: array
               items:
-                type: string   
+                type: string 
+  PutDetailResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string  
 
 
 
