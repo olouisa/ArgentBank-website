@@ -1,13 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch} from 'react-redux';
-import HeaderUser from '../containers/HeaderUser';
 import Account from '../containers/Account';
 import "../styles/pages.css";
 import Data from "../Lists/features.json";
 import { useState } from 'react';
 import { editName } from '../selectors';
 import { changeName } from '../actions';
-import { getUserDatas } from '../actions';
 import { postUserToken } from '../selectors';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
