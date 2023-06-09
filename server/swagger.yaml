@@ -186,41 +186,7 @@ paths:
           schema:
             $ref: "#/definitions/ApiTransactionResponses"
         "500" : 
-          description: Internal Server Error    
-    delete:
-      tags:
-        - Transactions
-      security:
-        - Bearer: []
-      summary: Delete information in a transaction
-      description: API for delete information in a single transaction
-      parameters:
-        - in: body
-          name: body
-          description: Delete Payload
-          required: true
-          schema:
-            $ref: '#/definitions/DeleteDetail'
-        - in: path
-          name: transactionId          
-          description: ID of transaction detail to delete
-          required: true
-          type: integer
-      responses: 
-        "200":
-          description: Transaction data successfully deleted
-          schema:
-            $ref: '#/definitions/ApiTransactionResponses'
-        "400" :
-          description: Bad Request 
-          schema:
-            $ref: "#/definitions/ApiTransactionResponses"
-        "401":
-          description: No Authorization
-          schema:
-            $ref: "#/definitions/ApiTransactionResponses" 
-        "500" : 
-          description: Internal Server Error     
+          description: Internal Server Error      
 securityDefinitions:
   Bearer:
     type: apiKey
