@@ -106,6 +106,8 @@ paths:
           description: Internal Server Error
   /transactions:
     get:
+      security:
+          - Bearer: []
       tags:
         - Transactions
       summary: Transactions
@@ -127,6 +129,8 @@ paths:
           description: Internal Server Error
   /transactions/{transactionId}:
     get:
+      security:
+          - Bearer: []
       tags:
         - Transactions
       summary: Transaction by id
