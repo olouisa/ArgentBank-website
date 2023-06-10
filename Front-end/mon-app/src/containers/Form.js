@@ -64,7 +64,7 @@ function Form() {
     <div>
       <form onSubmit={(e) => handleForm(e)}>
         <div className="input-wrapper">
-          <label>Username</label><input type="text" id="username" onChange={(e) => setUsername(e.target.value)} />
+          <label>Email</label><input type="text" id="Email" onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div className="input-wrapper">
           <label>Password</label><input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
