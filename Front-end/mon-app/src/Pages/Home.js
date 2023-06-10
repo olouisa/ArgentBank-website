@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../containers/Banner';
-import Features from '../components/Features';
+import Features from "../containers/Features";
 function Home() {
   return (
     <div>
