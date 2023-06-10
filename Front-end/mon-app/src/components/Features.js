@@ -3,6 +3,7 @@ import Chat from "../assets/img/icon-chat.png";
 import Money from "../assets/img/icon-money.png";
 import Security from "../assets/img/icon-security.png";
 import Data from "../Lists/features.json";
+import FeaturesItem from './FeaturesItem';
 
 function Features() {
     console.log(Data);
@@ -14,27 +15,11 @@ function Features() {
     <div>
          <section className="features">
         <h2 className="sr-only">Features</h2>
-        <div className="feature-item">
-            <img src={Chat} alt="Chat Icon" className="feature-icon" />
-            <h3 className="feature-item-title">{Tab[0].title}</h3>
-            <p>
-                {Tab[0].text}
-            </p>
-        </div>
-          <div className="feature-item">
-            <img src={Money} alt="Chat Icon" className="feature-icon" />
-            <h3 className="feature-item-title">{Tab[1].title}</h3>
-            <p>
-                {Tab[1].text}
-            </p>
-        </div>
-        <div className="feature-item">
-            <img src={Security} alt="Chat Icon" className="feature-icon" />
-            <h3 className="feature-item-title">{Tab[2].title}</h3>
-            <p>
-                {Tab[2].text}
-            </p>
-        </div>
+        <FeaturesItem title={Tab[0].title} text={Tab[0].text} picture={Chat} />
+        <FeaturesItem title={Tab[1].title} text={Tab[1].text} picture={Money} />
+        <FeaturesItem title={Tab[2].title} text={Tab[2].text} picture={Security} />
+
+        
       </section>
     </div>
   )
