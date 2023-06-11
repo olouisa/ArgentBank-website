@@ -41,10 +41,7 @@ function Header() {
       } else {
         navigate("/connection");
       }
-
-
     }
-
   }, [token])
 
 

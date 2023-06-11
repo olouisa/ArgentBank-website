@@ -12,7 +12,6 @@ function HeaderUser({username }) {
   return (
     <div>
       <div className="header">
-        {/* Mettre une state avec le nom du user connecté ici */}
         <h1>Welcome back<br />{username}!</h1>
         <button onClick={() => { handleClick() }} className="edit-button">Edit Name</button>
       </div>

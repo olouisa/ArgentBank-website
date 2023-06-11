@@ -52,17 +52,6 @@ if(action.type === "changeName") {
     })
 }
 
-
-    // if(action.type === "showMailMsg") {
-    //     return produce(state, (draft) => {
-    //         draft.errormail = "Identifiant incorrect"
-    //     })
-    // }
-    // if(action.type === "showPassMsg") {
-    //     return produce(state, (draft) => {
-    //         draft.errorpassword = "Mot de passe incorrect"
-    //     })
-    // }
     return state
 
 

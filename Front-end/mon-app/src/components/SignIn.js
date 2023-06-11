@@ -9,7 +9,6 @@ function SignIn({style}) {
     <div>
        <Link to="/connection" className="main-nav-item">
         <FontAwesomeIcon style={style} icon={faCircleUser} />
-          {/* <i class="fa fa-user-circle"></i> */}
           Sign In
         </Link>
     </div>
