@@ -1,6 +1,7 @@
 
 import {createStore} from "redux";
 import {produce} from "immer";
+import { composeWithDevTools } from "redux-devtools-extension"
 
 const initialState= {
     token : null,
@@ -11,7 +12,7 @@ const initialState= {
   
 }
 
-export const store = createStore(reducer, initialState);
+export const store = createStore(reducer, initialState, composeWithDevTools());
 
 export function reducer(state = initialState, action) {
     if(action.type === "getToken") {

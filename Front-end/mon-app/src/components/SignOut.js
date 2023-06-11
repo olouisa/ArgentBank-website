@@ -24,9 +24,7 @@ function SignOut({ style }) {
 
 
   }
-
-
-
+  
   return (
     location.pathname === "/edit"?
       <div className='signOut-edit'>
