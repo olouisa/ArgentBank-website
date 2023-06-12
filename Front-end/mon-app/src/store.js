@@ -43,7 +43,6 @@ export function reducer(state = initialState, action) {
         draft.id= null;
         draft.firstname= "";
         draft.username= "";
-        draft.password= null;
         draft.errorMsg = null
     })
   }

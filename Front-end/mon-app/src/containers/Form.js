@@ -30,10 +30,8 @@ function Form() {
   const handleForm = async (e) => {
     e.preventDefault();
     let data = await postUserData(username, password);
-    const userToken = data.body.token;
     localStorage.setItem("checked", isChecked);
-    localStorage.setItem("token", userToken);
-    dispatch(getToken(userToken));
+    
 
     if (data.status !== 200) {
           dispatch(showErrorMsg());
@@ -41,8 +39,10 @@ function Form() {
     }
     console.log(data);
     console.log(data.body.token);
+    const userToken = data.body.token;
     console.log(username, password);
 
+    dispatch(getToken(userToken));
 
     if (userToken) {
       let userDatas = await postUserToken(userToken);

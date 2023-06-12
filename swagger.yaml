@@ -156,7 +156,7 @@ paths:
             $ref: "#/definitions/ApiTransactionResponses" 
         "500" : 
           description: Internal Server Error
-  /transaction/{transactionId}/detail:
+  /transactions/{transactionId}/detail:
     put: 
       tags:
         - Transactions
